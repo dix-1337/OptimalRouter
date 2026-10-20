@@ -1,0 +1,45 @@
+<%- include('partials/header', { title, user, authQuery }) %>
+
+    <h2>Информация о маршруте</h2>
+
+    <section class="route-details">
+        <h3>
+            <%= item.origin %> → <%= item.destination %>
+        </h3>
+
+        <p>
+            <strong>Идентификатор:</strong>
+            <%= item.id %>
+        </p>
+
+        <p>
+            <strong>Расстояние:</strong>
+            <%= item.distanceKm %> км
+        </p>
+
+        <p>
+            <strong>Продолжительность:</strong>
+            <%= item.durationMin %> минут
+        </p>
+
+        <p>
+            <strong>Уровень пробок:</strong>
+            <%= item.traffic %>
+        </p>
+
+        <p>
+            <strong>Задержка из-за пробок:</strong>
+            <%= item.trafficDelayMin %> минут
+        </p>
+
+        <p>
+            <strong>Время создания:</strong>
+            <%= new Date(item.createdAt).toLocaleString('ru-RU') %>
+        </p>
+    </section>
+
+    <a class="button" href="/<%= authQuery %>">
+        Вернуться к списку
+    </a>
+
+    <%- include('partials/footer') %>

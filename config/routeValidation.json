@@ -1,0 +1,25 @@
+{
+  "text": {
+    "minLength": 2,
+    "maxLength": 40,
+    "allowedPattern": "^(?=.*[\\p{L}\\p{N}])[\\p{L}\\p{M}\\p{N} .,'’\\-]+$"
+  },
+  "numbers": {
+    "distanceKm": {
+      "min": 0,
+      "integer": false,
+      "step": 0.1
+    },
+    "durationMin": {
+      "min": 0,
+      "integer": true,
+      "step": 1
+    },
+    "trafficDelayMin": {
+      "min": 0,
+      "integer": true,
+      "step": 1
+    }
+  },
+  "trafficLevels": ["low", "medium", "high"]
+}

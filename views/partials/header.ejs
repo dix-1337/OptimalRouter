@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Сервис построения маршрутов</h1>
+
+    <nav>
+      <a href="/<%= authQuery %>">Главная</a>
+      <a href="/add<%= authQuery %>">Добавить маршрут</a>
+
+      <% if (user && user.role === 'guest') { %>
+        <a href="/?auth=1">Режим авторизованного пользователя</a>
+      <% } else { %>
+        <a href="/">Режим гостя</a>
+      <% } %>
+    </nav>
+
+    <p class="user-status">
+      Текущий пользователь:
+      <strong><%= user ? user.name : 'Гость' %></strong>
+    </p>
+  </header>
+
+  <main class="container">

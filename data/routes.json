@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "origin": "Минск",
+    "destination": "Брест",
+    "distanceKm": 350,
+    "durationMin": 240,
+    "traffic": "high",
+    "trafficDelayMin": 35,
+    "createdAt": "2026-10-16T19:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "origin": "Минск",
+    "destination": "Витебск",
+    "distanceKm": 280,
+    "durationMin": 190,
+    "traffic": "medium",
+    "trafficDelayMin": 20,
+    "createdAt": "2026-10-16T19:00:01.000Z"
+  },
+  {
+    "id": 3,
+    "origin": "Гомель",
+    "destination": "Могилёв",
+    "distanceKm": 170,
+    "durationMin": 130,
+    "traffic": "low",
+    "trafficDelayMin": 5,
+    "createdAt": "2026-10-16T19:00:02.000Z"
+  },
+  {
+    "id": 4,
+    "origin": "Гомель",
+    "destination": "Минск",
+    "distanceKm": 200,
+    "durationMin": 150,
+    "traffic": "low",
+    "trafficDelayMin": 0,
+    "createdAt": "2026-10-16T18:12:21.531Z"
+  }
+]

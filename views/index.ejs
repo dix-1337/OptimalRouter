@@ -1,0 +1,55 @@
+<%- include('partials/header', { title, user, authQuery }) %>
+
+    <h2>Список маршрутов</h2>
+
+    <% if (items.length===0) { %>
+        <p>Маршрутов пока нет.</p>
+        <% } else { %>
+            <div class="route-list">
+                <% items.forEach((item)=> { %>
+                    <article class="route-card">
+                        <h3>
+                            <%= item.origin %> → <%= item.destination %>
+                        </h3>
+
+                        <p>
+                            Расстояние:
+                            <strong>
+                                <%= item.distanceKm %> км
+                            </strong>
+                        </p>
+
+                        <p>
+                            Продолжительность:
+                            <strong>
+                                <%= item.durationMin %> минут
+                            </strong>
+                        </p>
+
+                        <p>
+                            Уровень пробок:
+                            <strong>
+                                <%= item.traffic %>
+                            </strong>
+                        </p>
+
+                        <p>
+                            Время создания:
+                            <strong>
+                                <%= new Date(item.createdAt).toLocaleString('ru-RU') %>
+                            </strong>
+                        </p>
+
+                        <a class="button" href="/item/<%= item.id %><%= authQuery %>">
+                            Подробнее
+                        </a>
+                    </article>
+                    <% }); %>
+            </div>
+            <% } %>
+
+                <a class="button button-primary" href="/add<%= authQuery %>">
+                    Добавить маршрут
+                </a>
+
+                <%- include('partials/footer') %>

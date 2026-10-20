@@ -1,0 +1,7 @@
+<%- include('partials/header', { title, user, authQuery }) %>
+
+    <h2>404 — Страница не найдена</h2>
+    <p>Такой страницы нет. Проверь адрес или вернись на главную.</p>
+    <a class="button" href="/<%= authQuery %>">На главную</a>
+
+    <%- include('partials/footer') %>

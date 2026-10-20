@@ -1,0 +1,54 @@
+<%- include('partials/header', { title, user, authQuery }) %>
+
+    <h2>Добавить маршрут</h2>
+
+    <% if (error) { %>
+        <p class="error">
+            <%= error %>
+        </p>
+        <% } %>
+
+            <form class="route-form" method="POST" action="/add<%= authQuery %>">
+                <label for="origin">Начальная точка</label>
+                <input id="origin" name="origin" type="text" placeholder="Например, Минск"
+                    minlength="<%= validationRules.text.minLength %>"
+                    maxlength="<%= validationRules.text.maxLength %>"
+                    value="<%= formData.origin || '' %>" required>
+
+                <label for="destination">Конечная точка</label>
+                <input id="destination" name="destination" type="text" placeholder="Например, Брест"
+                    minlength="<%= validationRules.text.minLength %>"
+                    maxlength="<%= validationRules.text.maxLength %>"
+                    value="<%= formData.destination || '' %>" required>
+
+                <label for="distanceKm">Расстояние, км</label>
+                <input id="distanceKm" name="distanceKm" type="number"
+                    min="<%= validationRules.numbers.distanceKm.min %>"
+                    step="<%= validationRules.numbers.distanceKm.step %>"
+                    value="<%= formData.distanceKm ?? 0 %>" required>
+
+                <label for="durationMin">Продолжительность, минут</label>
+                <input id="durationMin" name="durationMin" type="number"
+                    min="<%= validationRules.numbers.durationMin.min %>"
+                    step="<%= validationRules.numbers.durationMin.step %>"
+                    value="<%= formData.durationMin ?? 0 %>" required>
+
+                <label for="traffic">Уровень пробок</label>
+                <select id="traffic" name="traffic">
+                    <option value="low" <%= formData.traffic === 'low' ? 'selected' : '' %>>Низкий</option>
+                    <option value="medium" <%= formData.traffic === 'medium' ? 'selected' : '' %>>Средний</option>
+                    <option value="high" <%= formData.traffic === 'high' ? 'selected' : '' %>>Высокий</option>
+                </select>
+
+                <label for="trafficDelayMin">Задержка из-за пробок, минут</label>
+                <input id="trafficDelayMin" name="trafficDelayMin" type="number"
+                    min="<%= validationRules.numbers.trafficDelayMin.min %>"
+                    step="<%= validationRules.numbers.trafficDelayMin.step %>"
+                    value="<%= formData.trafficDelayMin ?? 0 %>" required>
+
+                <button class="button button-primary" type="submit">
+                    Добавить маршрут
+                </button>
+            </form>
+
+            <%- include('partials/footer') %>

@@ -1,0 +1,7 @@
+<%- include('partials/header', { title, user, authQuery }) %>
+
+    <h2>500 - Ошибка сервера</h2>
+    <p>Во время обработки запроса произошла ошибка. Попробуй ещё раз позже.</p>
+    <a class="button" href="/<%= authQuery %>">На главную</a>
+
+    <%- include('partials/footer') %>
